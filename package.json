@@ -1,0 +1,17 @@
+{
+  "name": "electron-speech",
+  "description": "speech recognition cli and api for node using electron",
+  "version": "0.0.0",
+  "repository": {
+    "url": "git://github.com/noffle/electron-speech.git"
+  },
+  "main": "index.js",
+  "bin": {
+    "stt": "cli.js"
+  },
+  "dependencies": {
+    "defined": "^1.0.0",
+    "electron-spawn": "^4.1.0",
+    "minimist": "^1.2.0"
+  }
+}
