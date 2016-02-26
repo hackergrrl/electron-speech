@@ -13,5 +13,12 @@
     "defined": "^1.0.0",
     "electron-spawn": "^4.1.0",
     "minimist": "^1.2.0"
-  }
+  },
+  "keywords": [
+    "web",
+    "speech",
+    "electron",
+    "recognition",
+    "stt"
+  ]
 }
