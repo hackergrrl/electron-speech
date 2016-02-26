@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "bin": {
-    "stt": "cli.js"
+    "electron-speech": "cli.js"
   },
   "dependencies": {
     "defined": "^1.0.0",
