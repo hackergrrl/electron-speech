@@ -24,13 +24,14 @@ listening..
 var Speech = require('electron-speech')
 ```
 
-#### var speech = Speech(lang, continuous)
+#### var speech = Speech(opts)
 
-Returns an event emitter, `speech`.
+Returns `speech`, an EventEmitter and Readable stream.
 
-Recognizes speech in the language `lang`. Defaults to `'en-US'`.
+`opts` accepts multiple keys:
 
-If `continuous` is true, `text` events will keep on being emitted as recognition
+- `opts.lang` - recognize speech in the language `lang`. Defaults to `'en-US'`.
+- `opts.continuous` - if true, `text` events will keep on being emitted as recognition
 occurs.
 
 #### speech.on('ready')
@@ -49,6 +50,11 @@ Emitted when an error has occurred in recognition.
 
 Emitted when recognition has ended. Does not fire if `continuous` was set to
 true.
+
+#### speech.pipe(stream)
+
+Uses `speech` as a readable stream for text rather than an event emitter.
+Results have newlines appended to them for parsing convenience.
 
 
 ## License

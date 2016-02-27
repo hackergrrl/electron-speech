@@ -4,7 +4,7 @@ var argv = require('minimist')(process.argv.slice(2))
 var continuous = argv.continuous || argv.c
 var quiet = argv.quiet || argv.q
 
-var c = speech('en_US', continuous)
+var c = speech({ language: 'en_US', continuous: continuous })
 
 c.listen()
 
