@@ -34,6 +34,11 @@ Returns `speech`, an EventEmitter and Readable stream.
 - `opts.continuous` - if true, `text` events will keep on being emitted as recognition
 occurs.
 
+#### speech.pipe(stream)
+
+Uses `speech` as a readable stream for text rather than an event emitter.
+Results have newlines appended to them for parsing convenience.
+
 #### speech.on('ready')
 
 Emitted when the microphone has begun to listen for speech.
@@ -50,11 +55,6 @@ Emitted when an error has occurred in recognition.
 
 Emitted when recognition has ended. Does not fire if `continuous` was set to
 true.
-
-#### speech.pipe(stream)
-
-Uses `speech` as a readable stream for text rather than an event emitter.
-Results have newlines appended to them for parsing convenience.
 
 
 ## License
