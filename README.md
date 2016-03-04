@@ -2,6 +2,27 @@
 
 > Speech recognition in node and the browser using Electron.
 
+## Prerequisites
+
+If you intend to run this as a CLI application, you'll need to make sure
+[electron-prebuilt](https://www.npmjs.com/package/electron-prebuilt) is
+installed:
+
+```sh
+$ npm install -g electron-prebuilt
+```
+
+If you want to use the API from a script using Node, you will need to launch
+your script using the
+[`electron-spawn`](https://www.npmjs.com/package/electron-spawn) command instead
+of the `node` command:
+
+```sh
+$ npm install -g electron-spawn
+
+$ electron-spawn example.js
+```
+
 ## Usage
 
 ### CLI
