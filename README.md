@@ -48,6 +48,8 @@ speech.on('text', function (text) {
 speech.listen();
 ```
 
+### Methods
+
 #### var speech = Speech(opts)
 
 Returns `speech`, an EventEmitter and Readable stream.
