@@ -35,6 +35,17 @@ listening..
 
 ```javascript
 var Speech = require('electron-speech')
+var speech = Speech({
+  lang: 'en-US' // optional, defaults to 'en-US'
+  continuous: true // will continously listen to and emit `text` events when recognition occurs
+});
+speech.on('text', text => { // cb called when text is recognized
+  console.log(text);
+  if(text === 'hello') {
+    alert('world');
+  }
+});
+speech.listen(); // start listening to speech
 ```
 
 #### var speech = Speech(opts)
@@ -69,6 +80,9 @@ Emitted when an error has occurred in recognition.
 Emitted when recognition has ended. Does not fire if `continuous` was set to
 true.
 
+#### speech.listen()
+
+Start listening to speech.
 
 ## License
 
