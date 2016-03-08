@@ -35,17 +35,17 @@ listening..
 
 ```javascript
 var Speech = require('electron-speech')
-var speech = Speech({
-  lang: 'en-US' // optional, defaults to 'en-US'
-  continuous: true // will continously listen to and emit `text` events when recognition occurs
-});
-speech.on('text', text => { // cb called when text is recognized
+
+var recog = Speech({
+  lang: 'en-US'
+  continuous: true
+})
+
+speech.on('text', function (text) {
   console.log(text);
-  if(text === 'hello') {
-    alert('world');
-  }
 });
-speech.listen(); // start listening to speech
+
+speech.listen();
 ```
 
 #### var speech = Speech(opts)
@@ -57,6 +57,11 @@ Returns `speech`, an EventEmitter and Readable stream.
 - `opts.lang` - recognize speech in the language `lang`. Defaults to `'en-US'`.
 - `opts.continuous` - if true, `text` events will keep on being emitted as recognition
 occurs.
+
+#### speech.listen()
+
+Starts listening to speech via the microphone. `'ready`'` will be emitted once speech
+recognition has begun.
 
 #### speech.pipe(stream)
 
@@ -79,10 +84,6 @@ Emitted when an error has occurred in recognition.
 
 Emitted when recognition has ended. Does not fire if `continuous` was set to
 true.
-
-#### speech.listen()
-
-Start listening to speech.
 
 ## License
 
