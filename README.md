@@ -41,11 +41,11 @@ var recog = Speech({
   continuous: true
 })
 
-speech.on('text', function (text) {
-  console.log(text);
+recog.on('text', function (text) {
+  console.log(text)
 });
 
-speech.listen();
+recog.listen()
 ```
 
 ### Methods
