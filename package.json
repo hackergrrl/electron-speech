@@ -1,7 +1,7 @@
 {
   "name": "electron-speech",
   "description": "speech recognition cli and api for node using electron",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "repository": {
     "url": "git://github.com/noffle/electron-speech.git"
   },
