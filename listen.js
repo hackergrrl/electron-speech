@@ -23,9 +23,10 @@ c.on('text', function (text) {
 })
 
 c.on('error', function (err) {
-  console.error(err)
+  console.error('error:', err)
 })
 
-c.on('close', function () {
+c.on('end', function () {
+  console.log('done')
   process.exit(0)
 })

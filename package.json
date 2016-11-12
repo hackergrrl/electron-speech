@@ -6,6 +6,9 @@
     "url": "git://github.com/noffle/electron-speech.git"
   },
   "main": "index.js",
+  "scripts": {
+    "start": "electron-spawn cli.js"
+  },
   "bin": {
     "electron-speech": "cli.js"
   },

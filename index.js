@@ -10,6 +10,10 @@ util.inherits(Speech, Readable)
 
 function Speech (opts) {
   if (!(this instanceof Speech)) { return new Speech(opts) }
+  if (!('webkitSpeechRecognition' in window)) {
+    this.emit('error', 'no speech api support')
+    return
+  }
 
   opts = defined(opts, {})
 
@@ -24,45 +28,41 @@ function Speech (opts) {
 }
 
 Speech.prototype.listen = function () {
-  if (!('webkitSpeechRecognition' in window)) {
-    this.emit('error', 'no speech api support')
-    return
-  } else {
-    var done = false
-    var self = this
-    var recognition = this.recognition
-    recognition.continuous = this.continuous
-    recognition.interimResults = false
-    recognition.onstart = function () {
-      self.emit('ready')
+  var done = false
+  var self = this
+  var recognition = this.recognition
+  recognition.continuous = this.continuous
+  recognition.interimResults = false
+  recognition.onstart = function () {
+    self.emit('ready')
+  }
+  recognition.onresult = function (event) {
+    if (done) {
+      return
     }
-    recognition.onresult = function (event) {
-      if (done) {
-        return
-      }
-      for (var i = event.resultIndex; i < event.results.length; i++) {
-        var result = event.results[i]
-        if (result.isFinal) {
-          var alt = result[0]
-          result = alt.transcript.trim()
-          self.emit('text', result)
-          self.push(result + '\n')
+    for (var i = event.resultIndex; i < event.results.length; i++) {
+      var result = event.results[i]
+      if (result.isFinal) {
+        var alt = result[0]
+        result = alt.transcript.trim()
+        self.emit('text', result)
+        self.push(result + '\n')
 
-          if (!self.continuous) {
-            recognition.stop()
-            done = true
-            self.push(null)
-          }
+        if (!self.continuous) {
+          recognition.stop()
+          done = true
+          self.push(null)
         }
       }
     }
-    recognition.onerror = function (err) {
-      self.emit('error', err)
-    }
-    recognition.onend = function () {
-      self.emit('end')
-    }
-
-    recognition.start()
   }
+  recognition.onerror = function (err) {
+    console.log('err', err.error)
+    self.emit('error', err.error)
+  }
+  recognition.onend = function () {
+    self.emit('end')
+  }
+
+  recognition.start()
 }
