@@ -10,7 +10,7 @@
     "start": "electron-spawn listen.js"
   },
   "bin": {
-    "electron-speech": "electron-spawn listen.js"
+    "electron-speech": "cli.js"
   },
   "dependencies": {
     "defined": "^1.0.0",
