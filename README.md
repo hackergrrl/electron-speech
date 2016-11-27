@@ -37,7 +37,7 @@ listening..
 var Speech = require('electron-speech')
 
 var recog = Speech({
-  lang: 'en-US'
+  lang: 'en-US',
   continuous: true
 })
 
