@@ -2,6 +2,18 @@
 
 > Speech recognition in node and the browser using Electron.
 
+## DEFUNCT
+
+It
+[seems](http://stackoverflow.com/questions/36214413/webkitspeechrecognition-returning-network-error-in-electron)
+that Google
+[has](https://groups.google.com/a/chromium.org/forum/#!topic/chromium-html5/JJe6KD7-bb8)
+shut down the Chrome Speech API for use in shell environments like Electron, which `electron-speech` relies on.
+
+Google does offer a general speech api, which you can access using a module like [`google-speech-api`](https://github.com/psirenny/node-google-speech-api). Unfortunately, you will require ffmpeg, a Google API key, and internet connectivity.
+
+Intrepid developers! A purely local, open, offline-friendly solution like [jasper](https://jasperproject.github.io/) may be the road forward! Go forth and write some awesome node modules around it!
+
 ## Prerequisites
 
 If you want to use the API from a script using Node, you will need to launch
