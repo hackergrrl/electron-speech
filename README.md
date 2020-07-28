@@ -10,16 +10,17 @@ that Google
 [has](https://groups.google.com/a/chromium.org/forum/#!topic/chromium-html5/JJe6KD7-bb8)
 shut down the Chrome Speech API for use in shell environments like Electron, which `electron-speech` relies on.
 
-Some other promising projects include:
+Some other directions to pursue instead include:
 
-1. [Sonus](https://github.com/evancohen/sonus): node module that is optimized
+1. [webkitSpeechRecognition in the browser](https://gist.github.com/noffle/968d694c3bffa055cfd3a4d9b1b13380). This works if you are using a Chrome-based browser that isn't a shell like Electron.
+2. [Sonus](https://github.com/evancohen/sonus): node module that is optimized
    for low powered devices and provides *customizable* offline hotword detection
    with real-time streaming results (via [Google Cloud
    Speech](https://github.com/googlecloudplatform/google-cloud-node#google-cloud-speech-alpha)
    and others).
-2. If you are looking for a purely offline option:
+3. If you are looking for a purely offline option:
    [node-pocketsphinx](https://github.com/cmusphinx/node-pocketsphinx)
-3. [Jasper](https://jasperproject.github.io/) looks promising, but is
+4. [Jasper](https://jasperproject.github.io/) looks promising, but is
    Python-based. Go forth and write a node wrapper around it!
 
 ## Prerequisites
