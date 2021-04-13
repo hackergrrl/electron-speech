@@ -2,7 +2,7 @@
 
 > Speech recognition in node and the browser using Electron.
 
-## DEFUNCT
+## THIS MODULE NO LONGER WORKS
 
 It
 [seems](http://stackoverflow.com/questions/36214413/webkitspeechrecognition-returning-network-error-in-electron)
